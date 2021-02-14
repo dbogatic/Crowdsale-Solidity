@@ -21,10 +21,9 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         PupperCoin token, // the PupperCoin itself that the PupperCoinSale will work with
         uint cap, // Total cap in wei
         uint openingTime, // OpeningTime in unix epoch seconds
-        uint closingTime // Closing time in unix epoch seconds
+        uint closingTime, // Closing time in unix epoch seconds
         uint goal // the minimum goal in wei
 
- 
     )
         // Pass the constructor parameters to the crowdsale contracts.
 
