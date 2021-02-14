@@ -10,7 +10,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/distribution/RefundablePostDeliveryCrowdsale.sol";
 
 // Inherit the crowdsale contracts
-contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, RefundableCrowdsale, MintedCrowdsale{
+contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, RefundableCrowdsale, MintedCrowdsale {
 
     // Fill in the constructor parameters
 
@@ -32,7 +32,8 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         TimedCrowdsale(openingTime, closingTime)
         Crowdsale(rate, wallet, token)
         MintedCrowdsale()
-        RefundableCrowdsale(goal)
+        RefundableCrowdsale(goal) // This crowdsale will, if it doesn't hit `goal`, allow everyone to get their money back
+        // by calling claimRefund(...)
 
         public
     {
@@ -68,3 +69,4 @@ contract PupperCoinSaleDeployer {
         token.renounceMinter();
     }
 }
+
