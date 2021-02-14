@@ -10,7 +10,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/distribution/RefundablePostDeliveryCrowdsale.sol";
 
 // Inherit the crowdsale contracts
-contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, RefundablePostDeliveryCrowdsale, MintedCrowdsale {
+contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, RefundableCrowdsale, RefundablePostDeliveryCrowdsale, MintedCrowdsale {
     
     uint fakenow = now;
 
