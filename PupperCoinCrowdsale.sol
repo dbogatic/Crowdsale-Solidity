@@ -30,13 +30,13 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         CappedCrowdsale(cap)
         TimedCrowdsale(openingTime, closingTime)
         Crowdsale(rate, wallet, token)
-        MintedCrowdsale()
+        MintedCrowdsale() // Constructor can stay empty
         RefundableCrowdsale(goal) // This crowdsale will, if it doesn't hit `goal`, allow everyone to get their money back
         // by calling claimRefund(...)
 
         public
     {
-        // Constructor can stay empty
+        
     }
 }
 
