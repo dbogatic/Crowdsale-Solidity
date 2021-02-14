@@ -14,13 +14,26 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
 
     // Fill in the constructor parameters
 
-    constructor(uint rate, // Rate in TKNbits
+    constructor(
+
+        uint rate, // Rate in TKNbits
         address payable wallet, // Sale beneficiary
-        PupperCoin token // the PupperCoin itself that the PupperCoinSale will work with
+        PupperCoin token, // the PupperCoin itself that the PupperCoinSale will work with
+        uint cap, // Total cap in wei
+        uint openingTime, // OpeningTime in unix epoch seconds
+        uint closingTime // Closing time in unix epoch seconds
+        uint goal // the minimum goal in wei
+
  
     )
         // Pass the constructor parameters to the crowdsale contracts.
+
+        CappedCrowdsale(cap)
+        TimedCrowdsale(openingTime, closingTime)
         Crowdsale(rate, wallet, token)
+        MintedCrowdsale()
+        RefundableCrowdsale(goal)
+
         public
     {
         // Constructor can stay empty
