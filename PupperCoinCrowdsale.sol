@@ -21,14 +21,14 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         address payable wallet, // Sale beneficiary
         PupperCoin token, // the PupperCoin itself that the PupperCoinSale will work with
         uint goal, // the minimum goal in wei
-        uint close, // close = now + 24 weeks
-        uint fakenow // for test purposes
+        uint close // close = now + 24 weeks
+        // uint fakenow // for test purposes
 
     )
         // Pass the constructor parameters to the crowdsale contracts.
         
         CappedCrowdsale(goal)
-        TimedCrowdsale(fakenow, fakenow + 15 minutes)
+        TimedCrowdsale(now, now + 15 minutes)
         Crowdsale(rate, wallet, token)
         MintedCrowdsale() // Constructor can stay empty
         RefundableCrowdsale(goal) // This crowdsale will, if it doesn't hit `goal`, allow everyone to get their money back
@@ -51,8 +51,8 @@ contract PupperCoinSaleDeployer {
         string memory name,
         string memory symbol,
         address payable wallet, // this address will receive all Ether raised by the sale
-        uint goal,
-        uint fakenow
+        uint goal
+        // uint fakenow
     )
         public
     {
@@ -67,8 +67,7 @@ contract PupperCoinSaleDeployer {
                             wallet, // address collecting the tokens
                             token, // token sales
                             goal, // maximum supply of tokens 
-                            fakenow, 
-                            fakenow + 15 minutes);
+                            now + 15 minutes);
         //replace now by fakenow to get a test function
         
         pupper_sale_address = address(pupper_sale);
