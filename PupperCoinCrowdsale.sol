@@ -20,21 +20,19 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         uint rate, // Rate in TKNbits
         address payable wallet, // Sale beneficiary
         PupperCoin token, // the PupperCoin itself that the PupperCoinSale will work with
-        uint cap, // Total cap in wei
-        uint openingTime, // OpeningTime in unix epoch seconds
-        uint closingTime, // Closing time in unix epoch seconds
-        uint goal // the minimum goal in wei
+        uint goal, // the minimum goal in wei
+        uint close, // close = now + 24 weeks
+        uint fakenow // for test purposes
 
     )
         // Pass the constructor parameters to the crowdsale contracts.
-
-        CappedCrowdsale(cap)
-        TimedCrowdsale(openingTime, closingTime)
+        
+        CappedCrowdsale(goal)
+        TimedCrowdsale(fakenow, fakenow + 15 minutes)
         Crowdsale(rate, wallet, token)
         MintedCrowdsale() // Constructor can stay empty
         RefundableCrowdsale(goal) // This crowdsale will, if it doesn't hit `goal`, allow everyone to get their money back
         // by calling claimRefund(...)
-        RefundablePostDeliveryCrowdsale() 
 
         public
     {
@@ -52,7 +50,9 @@ contract PupperCoinSaleDeployer {
         //Fill in the constructor parameters!
         string memory name,
         string memory symbol,
-        address payable wallet // this address will receive all Ether raised by the sale
+        address payable wallet, // this address will receive all Ether raised by the sale
+        uint goal,
+        uint fakenow
     )
         public
     {
@@ -62,7 +62,15 @@ contract PupperCoinSaleDeployer {
         token_address = address(token);
 
         // Create the PupperCoinSale and tell it about the token, set the goal, and set the open and close times to now and now + 24 weeks.
-        PupperCoinSale pupper_sale = new PupperCoinSale(1, wallet, token, 300, now, now+24 weeks, 300);
+         PupperCoinSale pupper_sale = new PupperCoinSale(
+                            1, // 1 wei
+                            wallet, // address collecting the tokens
+                            token, // token sales
+                            goal, // maximum supply of tokens 
+                            fakenow, 
+                            fakenow + 15 minutes);
+        //replace now by fakenow to get a test function
+        
         pupper_sale_address = address(pupper_sale);
 
         // Make the PupperCoinSale contract a minter, then have the PupperCoinSaleDeployer renounce its minter role
