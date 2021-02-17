@@ -22,14 +22,16 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         PupperCoin token, // the PupperCoin itself that the PupperCoinSale will work with
         uint goal, // the minimum goal in wei
         uint cap,
-        uint close // close = now + 15 min
+        uint256 openingTime,
+	    uint256 closingTime
+	    
         // uint fakenow // for test purposes
 
     )
         // Pass the constructor parameters to the crowdsale contracts.
         
         CappedCrowdsale(cap)
-        TimedCrowdsale(now, now + 15 minutes)
+        TimedCrowdsale(openingTime, closingTime)
         Crowdsale(rate, wallet, token)
         MintedCrowdsale() // Constructor can stay empty
         RefundableCrowdsale(goal) // This crowdsale will, if it doesn't hit `goal`, allow everyone to get their money back
@@ -69,8 +71,10 @@ contract PupperCoinSaleDeployer {
                             wallet, // address collecting the tokens
                             token, // token sales
                             goal, // maximum supply of tokens 
-                            300,
+                            300, 
+                            now,
                             now + 15 minutes);
+                            
         //replace now by fakenow to get a test function
         
         pupper_sale_address = address(pupper_sale);
