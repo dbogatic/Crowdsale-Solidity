@@ -12,7 +12,9 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 // Inherit the crowdsale contracts
 contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, RefundablePostDeliveryCrowdsale, MintedCrowdsale {
     
+        
 
+    
     // Fill in the constructor parameters
 
     constructor(
@@ -22,16 +24,14 @@ contract PupperCoinSale is Crowdsale, CappedCrowdsale, TimedCrowdsale, Refundabl
         PupperCoin token, // the PupperCoin itself that the PupperCoinSale will work with
         uint goal, // the minimum goal in wei
         uint cap,
-        uint256 openingTime,
-	    uint256 closingTime
-	    
-        // uint fakenow // for test purposes
+        uint close // Defines time in seconds till close and translates into UNIX time stamp for Open and Close time
 
     )
+    
         // Pass the constructor parameters to the crowdsale contracts.
         
         CappedCrowdsale(cap)
-        TimedCrowdsale(openingTime, closingTime)
+        TimedCrowdsale (now, now + 15 minutes) // Open and Close times in UNIX timestamp will be calculated when entering time in sec in Close field at deployment
         Crowdsale(rate, wallet, token)
         MintedCrowdsale() // Constructor can stay empty
         RefundableCrowdsale(goal) // This crowdsale will, if it doesn't hit `goal`, allow everyone to get their money back
@@ -55,7 +55,6 @@ contract PupperCoinSaleDeployer {
         string memory symbol,
         address payable wallet, // this address will receive all Ether raised by the sale
         uint goal
-        // uint fakenow for test purposes
         
     )
         public
@@ -71,8 +70,7 @@ contract PupperCoinSaleDeployer {
                             wallet, // address collecting the tokens
                             token, // token sales
                             goal, // maximum supply of tokens 
-                            300, 
-                            now,
+                            300,
                             now + 15 minutes);
                             
         //replace now by fakenow to get a test function
