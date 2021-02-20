@@ -5,11 +5,11 @@
 ![crowd](images/audience.jpg)
 #
 
-The company has decided to crowdsale their PupperCoin (PUP)token in order to help fund the network development.
+The company has decided to crowdsale their PupperCoin (PUP) token in order to help fund the network development.
 
 The terms of the crowdsale are:
 
-* The crowdsale will run for 24 weeks (for testing purposes we will use Close to be now + 5 min).
+* The crowdsale will run for 24 weeks (for testing purposes we will use Close to be now + 15 min).
 
 * The maximum amount to be raised is 300 ETH.
 
