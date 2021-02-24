@@ -22,7 +22,9 @@ The terms of the crowdsale are:
 
 * The contract will be tested on the Ropsten test network. 
 
+#
 ### Crowdsale Process 
+#
 
 ![image1](images/shot1.png)
 
