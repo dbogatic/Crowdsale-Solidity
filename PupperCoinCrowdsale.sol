@@ -70,7 +70,7 @@ contract PupperCoinSaleDeployer {
                             wallet, // address collecting the tokens
                             token, // token sales
                             goal, // maximum supply of tokens 
-                            300,
+                            300, // max coin cap
                             now + 15 minutes);
                             
         //replace now by fakenow to get a test function

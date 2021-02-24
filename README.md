@@ -1,8 +1,9 @@
-# Crowdsale-Solidity
+# PupperCoin Crowdsale
 
 ## Crowdsale Smart Contract with Solidity
 #
 ![crowd](images/audience.jpg)
+Source: [Pixabay](https://pixabay.com/photos/audience-crowd-event-cheer-945449/)
 #
 
 The company has decided to crowdsale their PupperCoin (PUP) token in order to help fund the network development.
