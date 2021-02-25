@@ -24,9 +24,8 @@ The terms of the crowdsale are:
 
 #
 ## Crowdsale Process 
-#
 
-* The first step in crowdsale process is to deploy PupperCoinSaleDeployer contract. Here we also specify the coin name, coin symbol, wallet that will receive ETH from coin purchase as well as crowdsale goal of 300 ETH (equivalent amount in wei).
+* The first step in crowdsale process is to deploy PupperCoinSaleDeployer contract. Here we also specify the token name, token symbol and wallet that will receive ETH from token purchase as well as crowdsale goal of 300 ETH (equivalent amount in wei).
 
 
 ![image1](images/shot1.png)
