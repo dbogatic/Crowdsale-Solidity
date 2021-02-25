@@ -14,7 +14,7 @@ The terms of the crowdsale are:
 
 * The maximum amount to be raised is 300 ETH.
 
-* The crowdsale will allow users to send ETH and get back PUP (PupperCoin).
+* The crowdsale will allow users to send ETH and get back PUPC(PupperCoin).
 
 * This contract will mint the tokens automatically and distribute them to buyers in one transaction.
 
