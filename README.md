@@ -6,7 +6,7 @@
 Source: [Pixabay](https://pixabay.com/photos/audience-crowd-event-cheer-945449/)
 #
 
-The company has decided to crowdsale their PupperCoin (PUP) token in order to help fund the network development.
+The company has decided to crowdsale their PupperCoin (PUPC) token in order to help fund the network development.
 
 The terms of the crowdsale are:
 
@@ -14,7 +14,7 @@ The terms of the crowdsale are:
 
 * The maximum amount to be raised is 300 ETH.
 
-* The crowdsale will allow users to send ETH and get back PUPC(PupperCoin).
+* The crowdsale will allow users to send ETH and get back PUPC token.
 
 * This contract will mint the tokens automatically and distribute them to buyers in one transaction.
 
