@@ -60,7 +60,7 @@ The terms of the crowdsale are:
 ![image6](images/shot6.png)
 
 
-* The transaction is shown in MetaMask where we verify prior to execution. 
+* The transaction is shown in MetaMask where we verify it prior to execution. 
 
 ![image7](images/shot7.png)
 
